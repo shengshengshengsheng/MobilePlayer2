@@ -1,23 +1,24 @@
 package com.shengsheng.mobileplayer2.activity;
-
 import android.app.Activity;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.view.Gravity;
-import android.widget.TextView;
+import android.support.v4.app.Fragment;
+import android.widget.FrameLayout;
+import android.widget.RadioGroup;
+
+import com.shengsheng.mobileplayer2.R;
 
 public class MainActivity  extends Activity {
+    private FrameLayout fl_main_content;
+    private RadioGroup rg_bottom_tag;
+
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        TextView textView=new TextView(this);
-        textView.setText("我是主页面");
-        textView.setTextSize(30);
-        textView.setGravity(Gravity.CENTER);
-        textView.setTextColor(Color.RED);
-        setContentView(textView);
+        setContentView(R.layout.activity_main);
+        fl_main_content=(FrameLayout)findViewById(R.id.fl_main_content);
+        rg_bottom_tag=(RadioGroup) findViewById(R.id.rg_bottom_tag);
+        rg_bottom_tag.check(R.id.rb_video);//默认选中本地视频为首页
     }
 
 }
